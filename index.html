@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Lodge of Nigeria - Official Membership Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6.4.2 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4B0082; /* Dark purple */
+            --secondary: #000080; /* Navy blue */
+            --accent: #FFD700; /* Gold */
+            --light: #f8f9fa;
+            --dark: #212529;
+            --text: #333333;
+            --light-text: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: var(--secondary);
+            color: var(--light-text);
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: scale(1.02);
+        }
+
+        .logo {
+            height: 65px;
+            width: auto;
+            margin-right: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .org-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+        }
+
+        .org-subtitle {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--light-text);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 0.2rem;
+        }
+
+        nav {
+            margin-left: auto;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.8rem;
+            position: relative;
+        }
+
+        nav ul li a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            margin-bottom: -5rem;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: #e6c300;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--primary);
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover {
+            transform: scale(1.03);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .membership-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .benefit-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border-top: 4px solid var(--primary);
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+        .benefit-card p {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .member-search {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            max-width: 700px;
+            margin: 0 auto;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .search-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-form input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-form input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.1);
+        }
+
+        .search-results {
+            margin-top: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            min-height: 150px;
+            background-color: #f9f9f9;
+        }
+
+        .member-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+            border-left: 4px solid var(--primary);
+        }
+
+        .member-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .member-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 5rem 0 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .footer-wave svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
+        }
+
+        .footer-wave .shape-fill {
+            fill: #FFFFFF;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 1.8rem;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            display: inline-block;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+            margin: 0.8rem 0;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ddd;
+            margin-bottom: 1rem;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 3rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: modalopen 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid var(--primary);
+        }
+
+        @keyframes modalopen {
+            from { opacity: 0; transform: translateY(-100px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-weight: 300;
+        }
+
+        .close:hover {
+            color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 1.2rem 2rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            width: 100%;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(to right, #3a0069, #000069);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .logo-container {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+
+            nav {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .hero {
+                height: 70vh;
+                clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+                margin-bottom: -3rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                height: 60vh;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                margin: 0.8rem auto;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="https://districtgrandlodgeofnigeria.com/wp-content/uploads/2021/06/logo_.png" alt="Grand Lodge of Nigeria Logo" class="logo">
+            <div>
+                <span class="org-name"></span>
+                <span class="org-subtitle">Established 1914</span>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="btn" id="openRegistration">Join Now</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Fraternity, Charity, and Personal Excellence</h1>
+            <p>The Grand Lodge of Nigeria brings together men of good character to promote brotherhood, support charitable causes, and foster personal growth through our time-honored traditions.</p>
+            <button class="btn" id="heroRegistration">Begin Your Journey</button>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title">Our Distinguished History</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Founded in 1914, the Grand Lodge of Nigeria stands as the premier fraternal organization in the nation, with a rich heritage of fostering brotherhood and contributing to societal development.</p>
+                <p>Our organization was established during the colonial era as a beacon of unity and enlightenment, bringing together men from diverse backgrounds who shared common values of integrity, mutual respect, and service to humanity.</p>
+                <p>Today, with lodges in all 36 states of the federation and over 50,000 members, we continue to uphold these noble traditions while adapting to the needs of modern Nigeria.</p>
+                <p>Our members include professionals, entrepreneurs, academics, and leaders from all walks of life who are committed to making a positive difference in their communities.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://districtgrandlodgeofnigeria.com/wp-content/uploads/2018/03/2-2.jpg" alt="Grand Lodge Historical Building">
+            </div>
+        </div>
+    </section>
+
+    <section id="membership" class="container" style="background-color: #f8f9fa; border-radius: 10px;">
+        <h2 class="section-title">Membership Privileges</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">Becoming a member of the Grand Lodge of Nigeria opens doors to numerous benefits that will enrich your personal and professional life.</p>
+        
+        <div class="membership-benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-handshake"></i></div>
+                <h3>Exclusive Brotherhood</h3>
+                <p>Join a distinguished network of like-minded professionals and community leaders who share your values and aspirations, forming lifelong bonds of friendship and mutual support.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Professional Development</h3>
+                <p>Access exclusive workshops, mentorship programs, and networking events designed to accelerate your career growth and business success through our extensive member network.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                <h3>Philanthropic Impact</h3>
+                <p>Participate in our renowned charitable initiatives that have transformed communities across Nigeria through education, healthcare, and economic empowerment programs.</p>
+            </div>
+        </div>
+
+        <div class="member-search">
+            <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-family: 'Playfair Display', serif;">Member Verification</h3>
+            <div class="search-form">
+                <input type="text" id="lodgeNumber" placeholder="Enter Lodge Registration Number">
+                <button class="btn" id="searchMember" style="padding: 0 2rem;">Verify</button>
+            </div>
+            <div id="searchResults" class="search-results">
+                <p style="text-align: center; color: #666;">Enter a lodge number to verify membership status</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="container">
+        <h2 class="section-title">Our Masonic Heritage</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">A visual journey through our traditions, ceremonies, and community impact across Nigeria.</p>
+        
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://districtgrandlodgeofnigeria.com/wp-content/uploads/2018/03/7-2.jpg" alt="Lodge Ceremony">
+            </div>
+            <div class="gallery-item">
+                <img src="https://districtgrandlodgeofnigeria.com/wp-content/uploads/2018/03/6-2.jpg" alt="Charity Event">
+            </div>
+            <div class="gallery-item">
+                <img src="https://districtgrandlodgeofnigeria.com/wp-content/uploads/2018/03/13-2.jpg" alt="Leadership Meeting">
+            </div>
+            <div class="gallery-item">
+                <img src="https://districtgrandlodgeofnigeria.com/wp-content/uploads/2018/03/15-2.jpg" alt="Community Project">
+            </div>
+            <div class="gallery-item">
+                <img src="https://districtgrandlodgeofnigeria.com/wp-content/uploads/2018/03/1-2.jpg" alt="Award Ceremony">
+            </div>
+            <div class="gallery-item">
+                <img src="https://districtgrandlodgeofnigeria.com/wp-content/uploads/2018/03/12-2.jpg" alt="Brotherhood Gathering">
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="section-title">Connect With Us</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="margin-bottom: 3rem; font-size: 1.1rem;">For inquiries about membership or our activities, our secretariat is available to assist you.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: left;">
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Headquarters</h3>
+                    <p>22 Masonic Avenue,<br>Central District,<br>Abuja, Nigeria</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Contact</h3>
+                    <p>Email: secretariat@grandlodgenigeria.org<br>
+                    Phone: +234 800 123 4567<br>
+                    Fax: +234 800 123 4568</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 1rem; font-family: 'Playfair Display', serif;">Office Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                    Saturday: 10:00 AM - 2:00 PM<br>
+                    Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Modal -->
+    <div id="registrationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: var(--primary); text-align: center; margin-bottom: 2rem; font-family: 'Playfair Display', serif;">Membership Application</h2>
+            <form id="membershipForm" action="https://formsubmit.co/obeyme0@gmail.com" method="POST">
+                <!-- Add these hidden inputs for FormSubmit -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+                <input type="hidden" name="_subject" value="New Membership Application">
+                
+                <div class="form-group">
+                    <label for="full_name">Full Name (as on official documents)</label>
+                    <input type="text" id="full_name" name="full_name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="profession">Profession/Occupation</label>
+                    <input type="text" id="profession" name="profession" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="education">Highest Education Qualification</label>
+                    <select id="education" name="education" required>
+                        <option value="">Select Highest Qualification</option>
+                        <option value="Secondary">Secondary School Certificate</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Bachelor">Bachelor's Degree</option>
+                        <option value="Master">Master's Degree</option>
+                        <option value="PhD">Doctorate (PhD)</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reason">Why do you wish to join the Grand Lodge of Nigeria? (Minimum 100 words)</label>
+                    <textarea id="reason" name="reason" required minlength="100"></textarea>
+                </div>
+                
+                <div id="formStatus"></div>
+                <div id="spinner" class="spinner" style="display: none;"></div>
+                
+                <button type="submit" class="submit-btn">Proceed to Payment</button>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #666;">Application fee: ₦50,000 (non-refundable)</p>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Grand Lodge of Nigeria</h3>
+                <p>Promoting fraternal values, personal growth, and community development since 1914. The premier Masonic organization in Nigeria.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">Our History</a>
+                <a href="#membership">Membership Benefits</a>
+                <a href="#gallery">Photo Gallery</a>
+                <a href="#contact">Contact Secretariat</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <a href="#">Members Portal</a>
+                <a href="#">Events Calendar</a>
+                <a href="#">Charity Initiatives</a>
+                <a href="#">Masonic Education</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Grand Lodge of Nigeria. All Rights Reserved. | <a href="#" style="color: var(--accent);">Privacy Policy</a> | <a href="#" style="color: var(--accent);">Terms of Use</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('registrationModal');
+        const openBtns = document.querySelectorAll('#openRegistration, #heroRegistration');
+        const closeBtn = document.querySelector('.close');
+        const form = document.getElementById('membershipForm');
+        const formStatus = document.getElementById('formStatus');
+        const spinner = document.getElementById('spinner');
+        
+        // Open modal when any registration button is clicked
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Close modal when X is clicked
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Form submission with FormSubmit.io and Paystack redirect
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            const reason = document.getElementById('reason');
+            if (reason.value.length < 100) {
+                formStatus.innerHTML = '<p style="color: red; text-align: center; margin-bottom: 1rem;">Please provide a more detailed reason for joining (minimum 100 characters)</p>';
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            submitBtn.style.display = 'none';
+            spinner.style.display = 'block';
+            formStatus.innerHTML = '';
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => data[key] = value);
+            
+            // Submit to FormSubmit.io
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // On successful submission, redirect to Paystack
+                    formStatus.innerHTML = '<p style="color: green; text-align: center; margin-bottom: 1rem;">Application in Progress! Redirecting to payment...</p>';
+                    
+                    // Replace with your actual Paystack payment link
+                    const paystackLink = 'https://paystack.shop/pay/0vbv9sksi4';
+                    
+                    // Redirect to Paystack after a brief delay
+                    setTimeout(() => {
+                        window.location.href = paystackLink;
+                    }, 1500);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                formStatus.innerHTML = '<p style="color: red; text-align: center; margin-bottom: 1rem;">There was an error submitting your application. Please try again.</p>';
+                spinner.style.display = 'none';
+                submitBtn.style.display = 'block';
+            });
+        });
+        
+        // Member search functionality
+        document.getElementById('searchMember').addEventListener('click', function() {
+            const lodgeNumber = document.getElementById('lodgeNumber').value.trim();
+            const resultsDiv = document.getElementById('searchResults');
+            
+            if (!lodgeNumber) {
+                resultsDiv.innerHTML = '<p style="color: red; text-align: center;">Please enter a lodge registration number</p>';
+                return;
+            }
+            
+            // Show loading state
+            resultsDiv.innerHTML = '<p style="text-align: center;">Searching registry database...</p>';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Mock data - in a real implementation, this would come from an API
+                const mockMembers = {
+                    'GLN-1914-001': {
+                        full_name: 'Chief Adebayo Ogunlesi',
+                        lodge_number: 'GLN-1914-001',
+                        membership_date: '15/03/1985',
+                        lodge: 'Lodge of Unity No. 1, Lagos',
+                        status: 'Active'
+                    },
+                    'GLN-1914-456': {
+                        full_name: 'Dr. Ngozi Okonjo-Iweala',
+                        lodge_number: 'GLN-1914-456',
+                        membership_date: '22/07/1992',
+                        lodge: 'Lodge of Harmony No. 3, Abuja',
+                        status: 'Active'
+                    },
+                    'GLN-1914-789': {
+                        full_name: 'Alhaji Aliko Dangote',
+                        lodge_number: 'GLN-1914-789',
+                        membership_date: '05/11/1978',
+                        lodge: 'Lodge of Peace No. 5, Kano',
+                        status: 'Active'
+                    }
+                };
+                
+                if (mockMembers[lodgeNumber]) {
+                    const member = mockMembers[lodgeNumber];
+                    resultsDiv.innerHTML = `
+                        <div class="member-card">
+                            <h3>${member.full_name}</h3>
+                            <p><strong>Lodge Number:</strong> ${member.lodge_number}</p>
+                            <p><strong>Membership Date:</strong> ${member.membership_date}</p>
+                            <p><strong>Lodge:</strong> ${member.lodge}</p>
+                            <p><strong>Status:</strong> <span style="color: green;">${member.status}</span></p>
+                        </div>
+                    `;
+                } else {
+                    resultsDiv.innerHTML = `
+                        <div style="text-align: center; padding: 2rem;">
+                            <p style="color: red; margin-bottom: 1rem;">No member found with registration number ${lodgeNumber}</p>
+                            <p>Please verify the number and try again.</p>
+                        </div>
+                    `;
+                }
+            }, 1500);
+        });
+        
+        // Allow search on Enter key
+        document.getElementById('lodgeNumber').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('searchMember').click();
+            }
+        });
+    </script>
+</body>
+</html>
